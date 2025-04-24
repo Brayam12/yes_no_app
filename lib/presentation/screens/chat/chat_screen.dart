@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
 import 'package:yes_no_app/presentation/providers/Chat_Provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/her_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
@@ -28,29 +29,28 @@ class ChatScreen extends StatelessWidget {
 }
 
 class _ChatView extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
-    //Le pide que este pendiente de cambios
     final chatProvider = context.watch<ChatProvider>();
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            Expanded(child:ListView.builder(
-              itemCount: chatProvider.messageList.length,
-              itemBuilder: (context, index) {
-              
-              return (index %2==0) 
-              ? const HerMessageBubble()
-               :const MyMessageBubble();
-            },)
-            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: chatProvider.messageList.length,
+                itemBuilder: (context, index) {
+                  final message = chatProvider.messageList[index];
 
-            //Caja de texto de mensaje
-            MessageFieldBox()
+                  return (message.fromWho == FromWho.me)
+                    ? MyMessageBubble(message: message.text)
+                    : HerMessageBubble(message: message.text);
+                },
+              ),
+            ),
+            // Aquí iría el MessageFieldBox si deseas escribir mensajes
           ],
         ),
       ),
