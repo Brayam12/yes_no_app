@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MyMessageBubble extends StatelessWidget {
+  //variable de la identidad atómica Message
   final String message;
 
-  const MyMessageBubble({super.key, required this.message});
+  const MyMessageBubble({super.key, 
+  //Se añade la variable al contructor
+  required this.message});
 
   @override
   Widget build(BuildContext context) {

@@ -17,10 +17,10 @@ class ChatScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(4.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDZEGRCUHc4TOrn5LdWaEWFU80zeRSEAvCeQ&s"),
+            backgroundImage: NetworkImage("https://media-qro1-1.cdn.whatsapp.net/v/t61.24694-24/473402901_659118503943741_1382192674907939930_n.jpg?ccb=11-4&oh=01_Q5Aa1QE65hu7To_mXj_sOs7gIe_0V8OgrwSGo_hX2wxyQ8iJkA&oe=6817844C&_nc_sid=5e03e0&_nc_cat=104"),
           )
         ),
-        title: Text("Mi amor"),
+        title: Text("Mi amor💓"),
         centerTitle: false,
       ),
       body: _ChatView(),
@@ -42,15 +42,17 @@ class _ChatView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: chatProvider.messageList.length,
                 itemBuilder: (context, index) {
+                  //Instancia qie sabra de quien es el mensaje
                   final message = chatProvider.messageList[index];
 
-                  return (message.fromWho == FromWho.me)
-                    ? MyMessageBubble(message: message.text)
-                    : HerMessageBubble(message: message.text);
+                  return (message.fromWho == FromWho.hers)
+                    ? HerMessageBubble(message: message.text)
+                    : MyMessageBubble(message: message.text);
                 },
               ),
             ),
             // Aquí iría el MessageFieldBox si deseas escribir mensajes
+            const MessageFieldBox(),
           ],
         ),
       ),
