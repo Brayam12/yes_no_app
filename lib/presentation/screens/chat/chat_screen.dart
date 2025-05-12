@@ -40,9 +40,11 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
+                //enlaza el controlador creado en chatprovider
+                controller: chatProvider.chatScrollController, 
                 itemCount: chatProvider.messageList.length,
                 itemBuilder: (context, index) {
-                  //Instancia qie sabra de quien es el mensaje
+                  //Instancia que sabra de quien es el mensaje
                   final message = chatProvider.messageList[index];
 
                   return (message.fromWho == FromWho.hers)
@@ -52,7 +54,9 @@ class _ChatView extends StatelessWidget {
               ),
             ),
             // Aquí iría el MessageFieldBox si deseas escribir mensajes
-            const MessageFieldBox(),
+            MessageFieldBox(
+              onValue: chatProvider.sendMessage,
+              ),
           ],
         ),
       ),
