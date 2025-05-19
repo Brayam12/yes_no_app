@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
 
 class MyMessageBubble extends StatelessWidget {
   //variable de la identidad atómica Message
-  final String message;
+  final Message message;
 
   const MyMessageBubble({super.key, 
   //Se añade la variable al contructor
@@ -21,7 +22,7 @@ class MyMessageBubble extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Text(message, 
+            child: Text(message.text,
             style: TextStyle(color: Colors.white),),
           ),
         ),
