@@ -4,7 +4,7 @@ import 'package:yes_no_app/domain/entities/message.dart';
 class HerMessageBubble extends StatelessWidget {
   final Message message;
 
-  const HerMessageBubble({super.key, required this.message});
+  const HerMessageBubble({super.key, required this.message, required icon});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,7 @@ class HerMessageBubble extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Text(message.text,
             style: const TextStyle(color: Colors.white),),
+            
           ),
         ),
         const SizedBox(height: 5),
@@ -57,7 +58,7 @@ class _ImageBubble extends StatelessWidget {
             width: size.width * 0.7,
             height: 150,
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: const Text("Mi amor esta enviando una imagen..."),
+            child: const Text("Mi amor está enviando una imagen..."),
           );
         } ,
         ));

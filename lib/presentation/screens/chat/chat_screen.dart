@@ -17,7 +17,7 @@ class ChatScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(4.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage("https://media-qro1-1.cdn.whatsapp.net/v/t61.24694-24/473402901_659118503943741_1382192674907939930_n.jpg?ccb=11-4&oh=01_Q5Aa1QE65hu7To_mXj_sOs7gIe_0V8OgrwSGo_hX2wxyQ8iJkA&oe=6817844C&_nc_sid=5e03e0&_nc_cat=104"),
+            backgroundImage: AssetImage('lib/images/Karina.jpeg'),
           )
         ),
         title: Text("Mi amor💓"),
@@ -48,7 +48,7 @@ class _ChatView extends StatelessWidget {
                   final message = chatProvider.messageList[index];
 
                   return (message.fromWho == FromWho.hers)
-                    ? HerMessageBubble(message: message)
+                    ? HerMessageBubble(message: message, icon: Icon,)
                     : MyMessageBubble(message: message);
                 },
               ),

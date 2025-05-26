@@ -24,8 +24,12 @@ class YesNoModel {
     : answer == 'no'
      ? 'No'
      :'Quizas',
+  
   fromWho: FromWho.hers,
   imageUrl: image,
+  sentAt: DateTime.now(),
+  
   );
+  
     
 }
